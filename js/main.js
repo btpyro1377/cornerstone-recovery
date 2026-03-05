@@ -4,14 +4,24 @@ const navLinks = document.querySelector('.nav-links');
 
 hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('active');
-  hamburger.classList.toggle('open');
 });
 
-// Close mobile nav when a link is clicked
+// Mobile dropdown toggle
+document.querySelectorAll('.dropdown > a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      link.parentElement.classList.toggle('open');
+    }
+  });
+});
+
+// Close mobile nav when a non-dropdown link is clicked
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-    hamburger.classList.remove('open');
+  link.addEventListener('click', (e) => {
+    if (!link.parentElement.classList.contains('dropdown')) {
+      navLinks.classList.remove('active');
+    }
   });
 });
 
@@ -29,11 +39,21 @@ const observer = new IntersectionObserver((entries) => {
 fadeEls.forEach(el => observer.observe(el));
 
 // Contact form (front-end only)
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', (e) => {
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Thank you for your message! We will be in touch soon.');
-    form.reset();
+    contactForm.reset();
+  });
+}
+
+// Apply form (front-end only)
+const applyForm = document.getElementById('apply-form');
+if (applyForm) {
+  applyForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you for your application! We will review it and contact you soon.');
+    applyForm.reset();
   });
 }
