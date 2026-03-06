@@ -169,7 +169,7 @@ img {
 }
 
 .hero .logo-hero {
-  width: 160px;
+  width: 240px;
   margin-bottom: 24px;
   border-radius: 8px;
 }
@@ -847,7 +847,7 @@ img {
   }
 
   .hero .logo-hero {
-    width: 120px;
+    width: 180px;
   }
 
   .two-col {
@@ -882,5 +882,36 @@ img {
 
   .section h2 {
     font-size: 1.6rem;
+  }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  .navbar, .hamburger, .cta-banner, .footer, .hero, .page-header {
+    display: none !important;
+  }
+
+  .content-page {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .content-page h2 {
+    font-size: 14pt;
+    margin-top: 20pt;
+    page-break-after: avoid;
+  }
+
+  .content-page li {
+    font-size: 11pt;
+  }
+
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  button[onclick="window.print()"] {
+    display: none !important;
   }
 }
