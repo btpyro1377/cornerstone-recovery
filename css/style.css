@@ -1,3 +1,6 @@
+/* ===== Google Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+
 /* ===== Reset & Base ===== */
 *, *::before, *::after {
   margin: 0;
@@ -25,7 +28,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: 'Playfair Display', Georgia, "Times New Roman", serif;
   color: var(--navy);
 }
 
@@ -53,6 +56,11 @@ img {
   border-bottom: 1px solid #e0e0e0;
   z-index: 1000;
   padding: 10px 0;
+  transition: box-shadow 0.3s;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
 .navbar .container {
@@ -83,6 +91,24 @@ img {
   font-weight: 500;
   color: var(--navy);
   transition: color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after {
+  transform: scaleX(1);
 }
 
 .nav-links > li > a:hover,
@@ -92,8 +118,12 @@ img {
 
 /* Dropdown */
 .dropdown > a::after {
-  content: " \25BE";
+  content: " \25BE" !important;
   font-size: 0.7rem;
+  position: static;
+  background: none;
+  transform: none;
+  height: auto;
 }
 
 .dropdown-menu {
@@ -149,6 +179,7 @@ img {
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
+  padding: 4px;
 }
 
 .hamburger span {
@@ -160,9 +191,23 @@ img {
   transition: transform 0.3s, opacity 0.3s;
 }
 
+/* Hamburger X animation */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 /* ===== Hero ===== */
 .hero {
-  background: linear-gradient(135deg, var(--dark-navy) 0%, var(--navy) 60%, var(--gold) 100%);
+  background: linear-gradient(135deg, rgba(15,36,64,0.85) 0%, rgba(27,58,92,0.8) 60%, rgba(197,151,44,0.7) 100%),
+              url('../img/hero-bg.jpg') center/cover no-repeat;
   color: var(--white);
   text-align: center;
   padding: 80px 20px 90px;
@@ -331,6 +376,19 @@ img {
   font-size: 1.02rem;
 }
 
+/* ===== SVG Icon Styles ===== */
+.icon-svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+}
+
+.pillar-icon .icon-svg,
+.cta-card-icon .icon-svg {
+  width: 48px;
+  height: 48px;
+}
+
 /* ===== Three CTA Cards ===== */
 .cta-cards {
   display: grid;
@@ -444,6 +502,43 @@ img {
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* ===== Pricing Info Box ===== */
+.pricing-box {
+  background: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin: 24px auto 0;
+  max-width: 500px;
+  text-align: center;
+}
+
+.pricing-box h3 {
+  color: var(--navy);
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.pricing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1.02rem;
+  color: #444;
+}
+
+.pricing-item:last-child {
+  border-bottom: none;
+}
+
+.pricing-item .price {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1.1rem;
 }
 
 /* ===== Content page (policies, phases, etc.) ===== */
@@ -627,6 +722,43 @@ img {
 .form-submit {
   text-align: center;
   margin-top: 24px;
+}
+
+/* ===== Form Success Message ===== */
+.form-success {
+  text-align: center;
+  padding: 48px 24px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-success .success-icon {
+  width: 64px;
+  height: 64px;
+  background: #e8f5e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.form-success .success-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: #2e7d32;
+}
+
+.form-success h3 {
+  color: var(--navy);
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.form-success p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 /* ===== Contact page ===== */
@@ -823,11 +955,17 @@ img {
     padding: 12px 16px;
   }
 
+  .nav-links > li > a::after {
+    display: none;
+  }
+
   .dropdown-menu {
     position: static;
     box-shadow: none;
     border: none;
     padding-left: 16px;
+    border-left: 3px solid var(--gold);
+    margin-left: 16px;
   }
 
   .dropdown:hover .dropdown-menu {

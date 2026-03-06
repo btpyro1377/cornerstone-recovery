@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | Cornerstone Recovery Foundation</title>
   <meta name="description" content="Get in touch with Cornerstone Recovery Foundation in Williston, North Dakota.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta property="og:title" content="Contact Us | Cornerstone Recovery Foundation">
+  <meta property="og:description" content="Get in touch with Cornerstone Recovery Foundation in Williston, North Dakota.">
+  <meta property="og:image" content="logo.jpg">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -56,13 +62,25 @@
           <br>
           <p><strong>Email:</strong><br><a href="mailto:info@cornerstonerecoveryfoundation.com" style="color: var(--gold);">info@cornerstonerecoveryfoundation.com</a></p>
         </div>
-        <form id="contact-form" class="contact-form">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <input type="text" name="subject" placeholder="Subject">
-          <textarea name="message" placeholder="Your Message" required></textarea>
-          <button type="submit" class="btn-primary">Send Message</button>
-        </form>
+        <div>
+          <form id="contact-form" class="contact-form" action="https://formspree.io/info@cornerstonerecoveryfoundation.com" method="POST">
+            <input type="hidden" name="_subject" value="New Contact Form Message">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+
+          <!-- Success Message (hidden by default) -->
+          <div id="contact-success" class="form-success" style="display: none;">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Message Sent</h3>
+            <p>Thank you for reaching out! We'll get back to you within 24&ndash;48 hours.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -72,7 +90,7 @@
     <div class="container">
       <div class="footer-brand">
         <img src="logo.jpg" alt="Cornerstone Recovery Foundation" class="logo-footer">
-        <p>Safe, structured, substance-free housing in Williston, North Dakota.</p>
+        <p>Faith-centered sober living in Williston, North Dakota. Rebuilding lives one day at a time.</p>
       </div>
       <div class="footer-nav">
         <h4>Quick Links</h4>

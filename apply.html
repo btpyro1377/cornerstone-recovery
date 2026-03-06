@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply for Sober Living | Cornerstone Recovery Foundation</title>
   <meta name="description" content="Apply for sober living housing at Cornerstone Recovery Foundation in Williston, North Dakota.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta property="og:title" content="Apply for Sober Living | Cornerstone Recovery Foundation">
+  <meta property="og:description" content="Apply for structured, substance-free sober living housing in Williston, North Dakota.">
+  <meta property="og:image" content="logo.jpg">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -61,13 +67,27 @@
       <p class="fade-in"><strong>Please review our full policy document before applying:</strong><br>
         <a href="policy-guidelines.html" target="_blank" style="color: var(--gold); font-weight: 600;">View Sober Living Policy &amp; Guidelines &rarr;</a>
       </p>
+
+      <!-- Pricing Info -->
+      <div class="pricing-box fade-in">
+        <h3>Program Costs</h3>
+        <div class="pricing-item">
+          <span>Non-refundable entry fee</span>
+          <span class="price">$300</span>
+        </div>
+        <div class="pricing-item">
+          <span>Monthly rent</span>
+          <span class="price">$750/mo</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Application Form -->
   <section class="section">
     <div class="container">
-      <form id="apply-form" class="apply-form fade-in">
+      <form id="apply-form" class="apply-form fade-in" action="https://formspree.io/info@cornerstonerecoveryfoundation.com" method="POST">
+        <input type="hidden" name="_subject" value="New Sober Living Application">
 
         <div class="form-section">
           <h3>Personal Information</h3>
@@ -224,6 +244,15 @@
           <button type="submit" class="btn-primary">Submit Application</button>
         </div>
       </form>
+
+      <!-- Success Message (hidden by default) -->
+      <div id="apply-success" class="form-success" style="display: none;">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Application Received</h3>
+        <p>Thank you for applying to Cornerstone Recovery Foundation. We will review your application and be in touch within 24&ndash;48 hours.</p>
+      </div>
     </div>
   </section>
 
@@ -232,7 +261,7 @@
     <div class="container">
       <div class="footer-brand">
         <img src="logo.jpg" alt="Cornerstone Recovery Foundation" class="logo-footer">
-        <p>Safe, structured, substance-free housing in Williston, North Dakota.</p>
+        <p>Faith-centered sober living in Williston, North Dakota. Rebuilding lives one day at a time.</p>
       </div>
       <div class="footer-nav">
         <h4>Quick Links</h4>
