@@ -586,6 +586,35 @@ img {
   color: #444;
 }
 
+/* Signature block */
+.signature-block {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #ddd;
+}
+
+.signature-row {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.signature-field {
+  flex: 1;
+}
+
+.signature-line {
+  border-bottom: 1px solid #333;
+  height: 40px;
+}
+
+.signature-field p {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
 /* Phase cards */
 .phase-card {
   background: var(--white);
