@@ -1054,6 +1054,15 @@ img {
 
 /* ===== Print Styles ===== */
 @media print {
+  @page {
+    margin: 0.75in;
+    @bottom-center {
+      content: "Page " counter(page) " of " counter(pages);
+      font-size: 9pt;
+      color: #888;
+    }
+  }
+
   .navbar, .hamburger, .cta-banner, .footer, .hero, .page-header {
     display: none !important;
   }
@@ -1080,5 +1089,12 @@ img {
 
   button[onclick="window.print()"] {
     display: none !important;
+  }
+
+  .signature-block {
+    page-break-before: always;
+    margin-top: 0;
+    padding-top: 48px;
+    border-top: none;
   }
 }
